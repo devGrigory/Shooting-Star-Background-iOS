@@ -2,3 +2,17 @@
 xcuserdata/
 *.xcuserstate
 DerivedData/
+
+# macOS System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Web / Node / IDEs
+node_modules/
+.vscode/
+.idea/
+*.log
+
+# Project Specific
+# (Add any local config files or large temp assets here)
