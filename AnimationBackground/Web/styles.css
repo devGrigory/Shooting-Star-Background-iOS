@@ -1,17 +1,99 @@
-body {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-    background-color: #222;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.js-stars {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+  overflow: hidden;
+}
+
+/* Stars layer */
+.stars {
+  position: absolute;
+  inset: 0;
+  width: 1px;
+  height: 1px;
+  background: white;
+
+  box-shadow:
+    2vw 5vh white,
+    10vw 8vh white,
+    15vw 15vh white,
+    22vw 22vh white,
+    28vw 12vh white,
+    32vw 32vh white,
+    38vw 18vh white,
+    42vw 35vh white,
+    48vw 25vh white,
+    53vw 42vh white,
+    58vw 15vh white,
+    63vw 38vh white,
+    68vw 28vh white,
+    73vw 45vh white,
+    78vw 32vh white,
+    83vw 48vh white,
+    88vw 20vh white,
+    93vw 52vh white,
+    98vw 35vh white;
+
+  animation: twinkle 8s linear infinite;
+}
+
+.stars::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 1px;
+  height: 1px;
+  background: white;
+
+  box-shadow:
+    8vw 12vh white,
+    16vw 18vh white,
+    24vw 25vh white,
+    33vw 15vh white,
+    41vw 28vh white,
+    49vw 35vh white,
+    57vw 22vh white,
+    65vw 42vh white,
+    73vw 28vh white,
+    81vw 48vh white,
+    89vw 32vh white,
+    97vw 45vh white;
+
+  animation: twinkle 6s linear infinite reverse;
+}
+
+/* Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  animation: shoot 3s ease-in infinite;
+}
+
+.shooting-star:nth-child(1) { top: 20%; animation-delay: 0s; }
+.shooting-star:nth-child(2) { top: 35%; animation-delay: 1s; }
+.shooting-star:nth-child(3) { top: 50%; animation-delay: 2s; }
+.shooting-star:nth-child(4) { top: 65%; animation-delay: 3s; }
+.shooting-star:nth-child(5) { top: 80%; animation-delay: 4s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(-120px) translateY(0) rotate(25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw) translateY(50vh) rotate(25deg);
+    opacity: 0;
+  }
 }

@@ -38,7 +38,7 @@ final class ViewController: UIViewController {
         NSLayoutConstraint.activate([
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            webView.topAnchor.constraint(equalTo: view.topAnchor),
+            webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), // Respects status bar
             webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
@@ -57,7 +57,7 @@ extension ViewController: WKNavigationDelegate {
     
     // MARK: - WKNavigationDelegate
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        executeStarsJavaScript()
+        print("HTML loaded")
     }
     
     // MARK: - JavaScript Execution
